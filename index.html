@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    >
+    <link rel="stylesheet" href="css/style.css" >
+    <title>HTLA | E-commerce product page</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css"
+    >
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar__right">
+            <img src="images/icon-menu.svg" class="hamburgar-menu" alt="" >
+            <img src="images/logo.svg" alt="" class="navbar__right__logo" >
+            <nav>
+              <ul>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="navbar__left">
+            <div
+              class="navbar__left__shopping-cart"
+              onclick="toggleClass('.cart-items-container', 'd-none')"
+            >
+              <img src="images/icon-cart.svg" alt="logo name sneakers" >
+              <p class="cart-noti d-none">0</p>
+            </div>
+            <div class="navbar__left__profile-pic">
+              <img src="images/image-avatar.png" alt="profile picture" >
+            </div>
+          </div>
+
+          <div class="cart-items-container d-none">
+            <div class="cart-title">
+              <h4 class="cart-title__text">Cart</h4>
+            </div>
+            <div class="cart-body">
+              <h4 class="cart-body__empty">Your cart is empty</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    <!-- mobile menu -->
+    <div class="mobile-menu-container">
+      <div class="mobile-menu-overlay"></div>
+      <div class="mobile-menu">
+        <span class="mobile-menu-close-btn">
+          <img src="images/icon-close.svg" alt="" >
+        </span>
+        <nav>
+          <ul>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+      </nav>
+      </div>
+    </div>          
+
+    <main>
+      <div class="container">
+        <div class="main">
+          <div class="mobile-img-showcase">
+            <div class="current-img" role="button">
+              <img src="images/image-product-1.jpg" data-img="main-img" alt="sneaker image" >
+            </div>
+            <!-- btn for mobile design -->
+            <button class="img-control-btn prev" id="mobile-btn-prev">
+              <img src="images/icon-previous.svg" alt="change next image button" >
+            </button>
+            <button class="img-control-btn next" id="mobile-btn-next">
+              <img src="images/icon-next.svg" alt="change previous image button" >
+            </button>
+          </div>
+    
+          <div class="desktop-img-showcase">
+            <div class="current-img" id="current-img-container" role="button">
+              <img src="images/image-product-1.jpg" data-img="main-img" alt="sneaker image" >
+            </div>
+            <div class="thumbnail-img-row">
+              <div
+                class="thumbnail-container thumbnail-active"
+                data-thumbnail-img="main-img-container"
+                role="button">
+                <img src="images/image-product-1-thumbnail.jpg" data-thumbnail-img-num="1" alt="" >
+              </div>
+              <div class="thumbnail-container"
+                data-thumbnail-img="main-img-container"
+                role="button">
+                <img src="images/image-product-2-thumbnail.jpg" data-thumbnail-img-num="2" alt="" >
+              </div>
+              <div class="thumbnail-container" 
+              data-thumbnail-img="main-img-container"
+              role="button">
+                <img src="images/image-product-3-thumbnail.jpg" data-thumbnail-img-num="3" alt="" >
+              </div>
+              <div class="thumbnail-container" 
+              data-thumbnail-img="main-img-container"
+              role="button">
+                <img src="images/image-product-4-thumbnail.jpg" data-thumbnail-img-num="4" alt="" >
+              </div>
+            </div>
+          </div>
+          <section class="detail-container">
+            <h1 class="company-name">sneaker company</h1>
+            <article>
+              <h3 class="title">Fall Limited Edition Sneakers</h3>
+              <p class="text">
+                These low-profile sneakers are your perfect casual wear companion.
+                Featuring a durable rubber outer sole, they’ll withstand
+                everything the weather can offer.
+              </p>
+            </article>
+    
+            <div class="price-row-container">
+              <div class="price-row">
+                <h2>$125.00</h2>
+                <span class="percentage">50%</span>
+              </div>
+              <h3 class="previous-price">$250.00</h3>
+            </div>
+    
+            <div class="btn-row">
+              <div class="product-counter-row">
+                <button class="btn-minus">
+                  <img src="images/icon-minus.svg" alt="" >
+                </button>
+                <p class="product-count">0</p>
+                <button class="btn-plus">
+                  <img src="images/icon-plus.svg" alt="" >
+                </button>
+              </div>
+              <button class="add-to-cart-btn" id="add-to-cart-btn">
+                <img src="images/icon-cart.svg" alt="" >
+                Add to cart
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div class="popup-img-container main d-none">
+      <div class="overlay"></div>
+      <div class="img-showcase">
+        <div class="current-img">
+          <img src="images/image-product-1.jpg" id="popup-current-img" alt="" >
+          <span class="img-control-btn prev" id="btn-prev">
+            <img src="images/icon-previous.svg" alt="" >
+          </span>
+          <span class="img-control-btn next" id="btn-next">
+            <img src="images/icon-next.svg" alt="" >
+          </span>
+
+          <img src="images/icon-close.svg" class="close-btn" alt="" >
+        </div>
+        <div class="thumbnail-img-row">
+          <div
+            class="thumbnail-container thumbnail-active"
+            data-popup-img="thumbnail-container">
+            <img src="images/image-product-1-thumbnail.jpg" data-thumbnail-img-num="1" alt="" >
+          </div>
+          <div class="thumbnail-container" 
+          data-popup-img="thumbnail-container">
+            <img src="images/image-product-2-thumbnail.jpg" data-thumbnail-img-num="2" alt="" >
+          </div>
+          <div class="thumbnail-container" 
+          data-popup-img="thumbnail-container">
+            <img src="images/image-product-3-thumbnail.jpg" data-thumbnail-img-num="3" alt="" >
+          </div>
+          <div class="thumbnail-container" 
+          data-popup-img="thumbnail-container">
+            <img src="images/image-product-4-thumbnail.jpg" data-thumbnail-img-num="4" alt="" >
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">HTLA</a>.
+  </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
