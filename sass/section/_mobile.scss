@@ -1,0 +1,134 @@
+@use "../base/variable" as *;
+@use "../abstract/mixin" as m;
+
+.mobile-menu-container {
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    transition: 0.5s ease-out;
+    background-color: var(--White);
+    z-index: 50;
+    width: 250px;
+    bottom: 0;
+    padding: 25px;
+    left: -300px;
+  }
+
+  ul {
+    margin-top: 53px;
+
+    li {
+      margin: 1rem 0;
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--Very-dark-blue);
+    }
+  }
+
+  .mobile-menu-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--Black);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 4;
+    transition: 0.5s ease-in;
+  }
+
+  .mobile-menu-active {
+    opacity: 0.5;
+    pointer-events: unset;
+  }
+}
+
+.main {
+  @include m.breakpoint-max("md") {
+    flex-direction: column;
+    padding: 3.5rem 0 2rem;
+  }
+
+  .mobile-img-showcase {
+    width: 100%;
+    position: relative;
+
+    @include m.breakpoint-min("md") {
+      display: none;
+    }
+
+    .current-img img {
+      object-fit: cover;
+      aspect-ratio: 5 / 4;
+    }
+
+    .img-control-btn {
+      width: 40px;
+      height: 40px;
+      top: 50%;
+
+      img {
+        width: 9px !important;
+        height: 13.5px !important;
+      }
+    }
+
+    .img-control-btn.prev {
+      left: 1rem;
+    }
+
+    .img-control-btn.next {
+      right: 1rem;
+    }
+  }
+
+  .detail-container {
+    @include m.breakpoint-max("md") {
+      width: 100%;
+      max-width: 500px;
+      padding: 24px;
+    }
+
+    .company-name {
+      @include m.breakpoint-max("sm") {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+      }
+    }
+
+    .title {
+      @include m.breakpoint-max("sm") {
+        font-size: 28px;
+      }
+    }
+
+    .text {
+      @include m.breakpoint-max("sm") {
+        font-size: 14px;
+      }
+    }
+
+    @include m.breakpoint-max("md") {
+      .price-row-container {
+        @include m.flex(row, space-between, center);
+        margin-top: 30px;
+      }
+
+      .add-to-cart-btn {
+        height: 54px;
+      }
+    }
+
+    .btn-row {
+      @include m.breakpoint-max("sm") {
+        flex-direction: column;
+      }
+
+      .product-counter-row {
+        @include m.breakpoint-max("sm") {
+          margin-bottom: 17px;
+        }
+      }
+    }
+  }
+}

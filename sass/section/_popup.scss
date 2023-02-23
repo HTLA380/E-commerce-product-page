@@ -1,0 +1,48 @@
+@use "../base/variable" as *;
+@use "../abstract/mixin" as m;
+
+.popup-img-container.main {
+  @include m.flex;
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  min-height: 900px;
+
+  @include m.breakpoint-max("md") {
+    display: none;
+  }
+
+  .overlay {
+    z-index: 5;
+    @include m.absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Black);
+    opacity: 0.5;
+  }
+
+  .img-showcase {
+    z-index: 50;
+    max-width: 550px;
+    position: relative;
+  }
+
+  .thumbnail-img-row {
+    max-width: 447px;
+    margin-inline: auto;
+  }
+
+  .thumbnail-container {
+    overflow: visible;
+  }
+
+  .close-btn {
+    @include m.absolute-tr(-44px, 0);
+    width: 21px;
+    height: 21px;
+    z-index: 5;
+    cursor: pointer;
+    filter: invert(53%) sepia(98%) saturate(1453%) hue-rotate(344deg)
+      brightness(95%) contrast(107%);
+  }
+}

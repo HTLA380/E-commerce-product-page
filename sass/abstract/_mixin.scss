@@ -1,0 +1,56 @@
+@mixin flex($direction: column, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin absolute($top: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin absolute-tr($top: 0, $right: 0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin absolute-br($bottom: 0, $right: 0) {
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin center-grid {
+  display: grid;
+  place-content: center;
+}
+
+@mixin img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+// media query mixin
+$breakPoint-up: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px,
+);
+
+@mixin breakpoint-min($size) {
+  @media (min-width: map-get($breakPoint-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-max($size) {
+  @media (max-width: map-get($breakPoint-up, $size)) {
+    @content;
+  }
+}

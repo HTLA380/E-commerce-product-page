@@ -1,0 +1,245 @@
+@use "../base/variable" as *;
+@use "../abstract/mixin" as m;
+
+.navbar {
+  @include m.flex(row, space-around, center);
+  padding: 1.875rem 0;
+  position: relative;
+  border-bottom: 1px solid var(--Light-grayish-blue);
+  @include m.breakpoint-max("lg") {
+    padding: 1.875rem 1.5rem;
+  }
+
+  // mobile navbar style
+  @include m.breakpoint-max("md") {
+    padding: 15px 3rem;
+    z-index: 3;
+    justify-content: space-between;
+    position: fixed;
+    border-bottom: none;
+    width: 100%;
+    background-color: var(--White);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @include m.breakpoint-max("sm") {
+    padding: 15px 1.5rem;
+  }
+
+  &__right {
+    width: 1fr;
+    @include m.flex(row, flex-start, center);
+
+    .hamburgar-menu {
+      margin-right: 1rem;
+      width: 16px;
+      display: none;
+
+      @include m.breakpoint-max("md") {
+        display: block;
+      }
+    }
+
+    &__logo {
+      margin-right: 58px;
+
+      @include m.breakpoint-max("lg") {
+        margin-right: 1.5rem;
+      }
+    }
+
+    ul {
+      display: block;
+
+      @include m.breakpoint-max("md") {
+        display: none;
+      }
+    }
+
+    li {
+      margin-right: 32px;
+      display: inline-block;
+
+      @include m.breakpoint-max("lg") {
+        margin-right: 1rem;
+      }
+
+      a {
+        color: var(--Grayish-blue);
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+          color: var(--Dary-Grayish-blue);
+        }
+
+        &::before {
+          content: "";
+          width: 100%;
+          scale: 0;
+          height: 4px;
+          @include m.absolute(3.85rem, 0);
+          background-color: var(--Orange);
+        }
+
+        &:hover::before {
+          scale: 1;
+          transform-origin: center;
+          transition: 0.2s ease-out;
+        }
+      }
+    }
+  }
+
+  &__left {
+    width: auto;
+    @include m.flex(row, flex-end, center);
+
+    &__shopping-cart {
+      cursor: pointer;
+      position: relative;
+
+      @include m.breakpoint-max("md") {
+        width: 20px;
+      }
+
+      .cart-noti {
+        font-size: 10px;
+        @include m.absolute-tr(-0.4rem, -0.6rem);
+        padding: 0px 7px;
+        border-radius: 100vmax;
+        color: var(--White);
+        background-color: var(--Orange);
+      }
+    }
+
+    &__profile-pic {
+      width: 50px;
+      margin-left: 46px;
+      cursor: pointer;
+
+      @include m.breakpoint-max("sm") {
+        width: 30px;
+        margin-left: 22px;
+      }
+
+      img {
+        display: block;
+      }
+
+      @include m.breakpoint-min("md") {
+        &:hover {
+          transform: scale(1.1);
+          transition: border 0.1s ease-out;
+          border: 2px solid var(--Orange);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  .cart-items-container {
+    @include m.absolute-tr(5.625rem, 5.625rem);
+    @include m.flex(column, center, center);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--White);
+    width: 360px;
+    height: 256px;
+    transition: 0.1s;
+
+    @include m.breakpoint-max("sm") {
+      @include m.absolute-tr(5.625rem, 50%);
+      transform: translateX(50%);
+      width: 90%;
+      max-width: 360px;
+    }
+
+    .cart-title {
+      width: 100%;
+      padding: 1.625rem 1.5rem;
+      border-bottom: 1px solid var(--Light-grayish-blue);
+
+      &__text {
+        color: var(--Very-dark-blue);
+        font-size: 14px;
+      }
+    }
+
+    .cart-body {
+      height: 100%;
+      width: 100%;
+      @include m.flex;
+
+      &__empty {
+        font-size: 15px;
+        color: var(--Grayish-blue);
+        letter-spacing: 0.4;
+      }
+
+      .cart-product-container {
+        padding: 2.125rem 1.5rem;
+      }
+
+      .cart-product-text-row {
+        @include m.flex(row, space-between, center);
+        margin-bottom: 1.8125rem;
+
+        img {
+          width: 50px;
+          border-radius: 4px;
+        }
+      }
+
+      .cart-text-container {
+        width: 100%;
+        margin: 0 1rem;
+
+        h4 {
+          font-size: 1rem;
+          font-weight: 500;
+
+          @include m.breakpoint-max("md") {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .delete-icon {
+        width: 16px;
+        cursor: pointer;
+      }
+
+      .desktop-cart-btn {
+        @include m.breakpoint-max("md") {
+          display: none;
+        }
+      }
+
+      .mobile-cart-btn {
+        @include m.breakpoint-min("md") {
+          display: none;
+        }
+      }
+
+      .cart-btn {
+        height: 54px;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      .cart-amount-row {
+        font-weight: 400;
+        line-height: 30px;
+
+        .total {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .cart-items-container.d-none {
+    display: none;
+  }
+}

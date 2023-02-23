@@ -1,0 +1,59 @@
+@use "../base/variable" as *;
+@use "../abstract/mixin" as m;
+
+.add-to-cart-btn {
+  width: 100%;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--White);
+  border: none;
+  background-color: var(--Orange);
+  border-radius: 10px;
+
+  @include m.breakpoint-min("md") {
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+
+  img {
+    margin-right: 1rem;
+    width: 17px;
+    filter: brightness(100);
+  }
+}
+
+.img-control-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-40%);
+  background-color: var(--White);
+  border-radius: 100vmax;
+  width: 55px;
+  height: 55px;
+  @include m.flex;
+
+  &:hover img {
+    filter: invert(53%) sepia(98%) saturate(1453%) hue-rotate(344deg)
+      brightness(95%) contrast(107%);
+  }
+
+  img {
+    width: 13px;
+    user-select: none;
+  }
+}
+
+.img-control-btn.prev {
+  left: -25.25px;
+}
+
+.img-control-btn.next {
+  right: -25.25px;
+}
+
+.popup-img-container.d-none {
+  display: none;
+  pointer-events: none;
+}

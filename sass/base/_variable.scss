@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+// colors
+// ### Primary
+
+$Orange: #ff7d1a;
+$Pale-orange: hsl(25, 100%, 94%);
+$Very-dark-blue: hsl(220, 13%, 13%);
+$Dark-grayish-blue: hsl(219, 9%, 45%);
+$Grayish-blue: #68707D;
+$Light-grayish-blue: hsl(223, 64%, 98%);
+$White: hsl(0, 0%, 100%);
+$Black: hsl(0, 0%, 0%);
+
+// Font
+$main-font: "Kumbh Sans";
+$main-size: 16px;
+
+$colors: (
+'Orange': $Orange,
+'Pale-orange': $Pale-orange,
+'Very-dark-blue': $Very-dark-blue,
+'Dark-grayish-blue': $Dark-grayish-blue,
+'Grayish-blue': $Grayish-blue,
+'Light-grayish-blue': $Light-grayish-blue,
+'White': $White,
+'Black': $Black,
+);
+
+:root {
+  @each $key, $val in $colors {
+    --#{$key}: #{$val};
+  };
+  --font-fam: #{$main-font};
+  --font-size: #{$main-size};
+}
